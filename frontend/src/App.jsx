@@ -1,58 +1,64 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import TestPage from './pages/TestPage';
+import Results from './pages/Results';
+import AdminPanel from './pages/AdminPanel';
+import ProtectedRoute from './components/ProtectedRoute';
+import './styles/globals.css';
 
 function App() {
-  const [text, setText] = useState('');
-  const [message, setMessage] = useState('');
-
-  // Kelajakda production backend URL manzili shu yerga qo'yiladi
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!text.trim()) return;
-
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/message`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        setMessage('Matn muvaffaqiyatli saqlandi!');
-        setText('');
-      } else {
-        setMessage(`Xatolik: ${data.error}`);
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage('Serverga ulanishda xatolik yuz berdi.');
-    }
-  };
-
   return (
-    <div style={{ padding: '50px', fontFamily: 'sans-serif', textAlign: 'center' }}>
-      <h1>Hello World!</h1>
-      <p>Ruzmetov.uz uchun test ilovasi</p>
-      
-      <form onSubmit={handleSubmit} style={{ margin: '20px 0' }}>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Matn kiriting..."
-          style={{ padding: '10px', width: '250px', marginRight: '10px' }}
-        />
-        <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>
-          Yuborish
-        </button>
-      </form>
-
-      {message && <p style={{ fontWeight: 'bold', color: 'green' }}>{message}</p>}
-    </div>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router 
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true
+          }}
+        >
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route 
+                path="/test/:subjectId" 
+                element={
+                  <ProtectedRoute>
+                    <TestPage />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/results" 
+                element={
+                  <ProtectedRoute>
+                    <Results />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/admin" 
+                element={
+                  <ProtectedRoute adminOnly>
+                    <AdminPanel />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Layout>
+          <Toaster position="top-right" />
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
