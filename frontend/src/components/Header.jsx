@@ -27,7 +27,7 @@ const Header = () => {
               <span className="text-white font-bold text-xl">T</span>
             </div>
             <span className="text-xl font-bold text-gray-800 dark:text-white hidden sm:block">
-              Test Platform
+              Online test.
             </span>
           </Link>
 
@@ -98,7 +98,7 @@ const Header = () => {
                 className="flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
               >
                 <UserCircleIcon className="w-5 h-5" />
-                <span>Login</span>
+                <span>Kirish</span>
               </Link>
             )}
           </div>

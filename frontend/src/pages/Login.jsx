@@ -26,7 +26,7 @@ const Login = () => {
     <div className="max-w-md mx-auto mt-10">
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-6">
-          Login to Your Account
+          Hisobingizga kiring
         </h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -42,13 +42,13 @@ const Login = () => {
                        focus:ring-2 focus:ring-primary-500 focus:border-transparent
                        dark:bg-gray-700 dark:text-white transition-colors"
               required
-              placeholder="your@email.com"
+              placeholder="sizning@gmail.com"
             />
           </div>
           
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Password
+              parol
             </label>
             <input
               type="password"
@@ -73,9 +73,9 @@ const Login = () => {
         </form>
         
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
-          Don't have an account?{' '}
+          akkountingiz yo'qmi?{' '}
           <Link to="/register" className="text-primary-500 hover:text-primary-600 font-semibold">
-            Register here
+            Ro'yxatdan o'tish
           </Link>
         </p>
       </div>

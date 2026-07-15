@@ -50,7 +50,7 @@ const Register = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Full Name
+              To'liq ismingiz
             </label>
             <input
               type="text"
@@ -67,7 +67,7 @@ const Register = () => {
           
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Email Address
+              Email Adres
             </label>
             <input
               type="email"
@@ -84,7 +84,7 @@ const Register = () => {
           
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Password
+              Parol
             </label>
             <input
               type="password"
@@ -102,7 +102,7 @@ const Register = () => {
           
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Confirm Password
+              Parolni tasdiqlang
             </label>
             <input
               type="password"
@@ -128,9 +128,9 @@ const Register = () => {
         </form>
         
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
-          Already have an account?{' '}
+          Hisobingiz allaqachon mavjudmi?{' '}
           <Link to="/login" className="text-primary-500 hover:text-primary-600 font-semibold">
-            Login here
+            Bu yerga kiring
           </Link>
         </p>
       </div>

@@ -49,17 +49,17 @@ const Home = () => {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          Welcome to Test Platform
+          Online test web platformasiga xush kelibsiz!
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Test your knowledge with our comprehensive question bank. Choose a subject and start learning!
+          Bizning keng qamrovli savollar bankimiz bilan bilimingizni sinab ko'ring. Mavzuni tanlang va o'rganishni boshlang!
         </p>
       </div>
 
       {/* Subject Selection */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-          Select a Subject
+          Qaysi fan bo'yicha test topshirasiz?
         </h2>
         
         {loading ? (
@@ -68,7 +68,7 @@ const Home = () => {
           </div>
         ) : subjects.length === 0 ? (
           <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-            <p>No subjects available yet. Please check back later.</p>
+            <p>Hozircha fanlar mavjud emas. Iltimos, keyinroq qayta tekshirib ko'ring.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -100,7 +100,7 @@ const Home = () => {
       {/* ✅ Question Count Selection */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-          Number of Questions
+          Savollar soni
         </h3>
         <div className="flex flex-wrap gap-3">
           {questionCountOptions.map((count) => (
@@ -133,49 +133,18 @@ const Home = () => {
               : 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
           }`}
         >
-          Start Test
+          Testni boshlash
         </button>
         {!selectedSubject && (
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            Please select a subject to start the test
+            Testni boshlash uchun fanni tanlang
           </p>
         )}
         {!isAuthenticated && (
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            You need to login or register to start the test
+            Sinovni boshlash uchun tizimga kirishingiz yoki ro'yxatdan o'tishingiz kerak
           </p>
         )}
-      </div>
-
-      {/* Features Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-          <div className="text-4xl mb-3">📚</div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            Multiple Subjects
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
-            Choose from various subjects with hundreds of questions
-          </p>
-        </div>
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-          <div className="text-4xl mb-3">⚡</div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            Instant Feedback
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
-            Get immediate results with correct answers highlighted
-          </p>
-        </div>
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-          <div className="text-4xl mb-3">📊</div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            Track Progress
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
-            View your test history and performance analytics
-          </p>
-        </div>
       </div>
     </div>
   );

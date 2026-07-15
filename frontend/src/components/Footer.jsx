@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            © 2024 Test Platform. All rights reserved.
+            © 2026 Online test. All rights reserved. created by <a href='https://ruzmetov.uz'>ruzmetov.uz</a> development company
           </div>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
